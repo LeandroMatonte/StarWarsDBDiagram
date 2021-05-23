@@ -24,36 +24,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.User = void 0;
+exports.Planet = void 0;
 var typeorm_1 = require("typeorm");
-var User = /** @class */ (function (_super) {
-    __extends(User, _super);
-    function User() {
+var User_1 = require("./User");
+var Planet = /** @class */ (function (_super) {
+    __extends(Planet, _super);
+    function Planet() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], User.prototype, "id");
+    ], Planet.prototype, "id");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "Name");
+    ], Planet.prototype, "Name");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "LastName");
+    ], Planet.prototype, "Climate");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Number)
+    ], Planet.prototype, "Diameter");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "Email");
+    ], Planet.prototype, "Gravity");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Number)
+    ], Planet.prototype, "Population");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "Password");
-    User = __decorate([
+    ], Planet.prototype, "Terrain");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], Planet.prototype, "Image");
+    __decorate([
+        typeorm_1.ManyToMany(function () { return User_1.User; }),
+        typeorm_1.JoinTable(),
+        __metadata("design:type", Array)
+    ], Planet.prototype, "users");
+    Planet = __decorate([
         typeorm_1.Entity()
-    ], User);
-    return User;
+    ], Planet);
+    return Planet;
 }(typeorm_1.BaseEntity));
-exports.User = User;
+exports.Planet = Planet;
